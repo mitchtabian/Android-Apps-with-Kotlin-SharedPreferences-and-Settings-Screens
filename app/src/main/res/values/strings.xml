@@ -87,8 +87,8 @@
     <string name="title_backup_frequency">Data Backup Frequency</string>
     <string name="summary_backup_frequency">If wifi is not available, how often do you want to backup your data?</string>
     <string name="key_backup_frequency">key_backup_frequency</string>
-    
 
+    <string name="title_activity_settings1">SettingsActivity1</string>
 
 
 </resources>

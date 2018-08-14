@@ -21,8 +21,6 @@ class ItemsActivity : AppCompatActivity(),
 
     private val TAG = "ItemsActivity"
 
-//    var settingsFragment: SettingsFragment? = null
-
     val noteLayoutManager by lazy {
         LinearLayoutManager(this)
     }
@@ -97,14 +95,18 @@ class ItemsActivity : AppCompatActivity(),
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.action_settings -> {
-
-
+                navSettingsActivity1()
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
     }
 
+
+    private fun navSettingsActivity1(){
+        intent = Intent(this, SettingsActivity1::class.java)
+        startActivity(intent)
+    }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
