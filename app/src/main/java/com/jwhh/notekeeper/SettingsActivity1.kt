@@ -14,6 +14,19 @@ class SettingsActivity1 : AppCompatActivity() {
         setContentView(R.layout.activity_settings1)
         setSupportActionBar(toolbar)
 
+        setupActionBar()
     }
 
+    private fun setupActionBar() {
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        if (id == android.R.id.home) {
+            finish()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
+    }
 }
