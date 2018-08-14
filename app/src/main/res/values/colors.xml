@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#333333</color>
+    <color name="colorPrimaryDark">#222222</color>
+    <color name="colorAccent">@color/pluralsight_orange</color>
+    <color name="colorAccentLight">#5ff05a28</color>
+    <color name="colorAccentMedium">#aff05a28</color>
+    <color name="pluralsight_orange">#f05a28</color>
+    <color name="light_grey">#f2f2f2</color>
+    <color name="white">#ffffffff</color>
+</resources>

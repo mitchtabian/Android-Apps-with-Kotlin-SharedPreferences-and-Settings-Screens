@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="pref_backup_frequency_entries">
+        <item>never</item>
+        <item>1 hour</item>
+        <item>2 hours</item>
+        <item>5 hours</item>
+        <item>12 hours</item>
+        <item>24 hours</item>
+        <item>3 days</item>
+        <item>7 days</item>
+    </string-array>
+
+    <string-array name="pref_backup_frequency_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>5</item>
+        <item>12</item>
+        <item>24</item>
+        <item>72</item>
+        <item>168</item>
+    </string-array>
+</resources>

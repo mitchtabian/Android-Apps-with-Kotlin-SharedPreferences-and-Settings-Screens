@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.jwhh.notekeeper.NoteActivity">
+    <item
+        android:id="@+id/action_cancel"
+        android:icon="@android:drawable/ic_menu_revert"
+        android:title="Cancel"
+        app:showAsAction="ifRoom|withText" />
+    <item
+        android:id="@+id/action_next"
+        android:icon="@drawable/ic_forward_white_24dp"
+        android:title="Next"
+        app:showAsAction="ifRoom|withText" />
+</menu>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+    android:padding="5dp">
+
+    <ImageButton
+        android:id="@+id/close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/ic_close_white_24dp"
+        android:layout_centerVertical="true"
+        android:background="@color/colorPrimary"/>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Account Settings"
+        android:textSize="21sp"
+        android:textColor="#fff"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/close"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true">
+
+        <ImageButton
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_check_white_24dp"
+            android:layout_centerInParent="true"
+            android:background="@color/colorPrimary"/>
+
+        <ProgressBar
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:id="@+id/progress_bar"
+            android:layout_centerInParent="true"
+            android:visibility="invisible"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
