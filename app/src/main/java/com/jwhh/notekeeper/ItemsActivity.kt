@@ -21,8 +21,6 @@ class ItemsActivity : AppCompatActivity(),
 
     private val TAG = "ItemsActivity"
 
-//    var settingsFragment: SettingsFragment? = null
-
     val noteLayoutManager by lazy {
         LinearLayoutManager(this)
     }
