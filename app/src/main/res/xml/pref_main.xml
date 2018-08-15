@@ -11,6 +11,10 @@
 
         </Preference>
 
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.jwhh.notekeeper"
+            android:targetClass="com.jwhh.notekeeper.AccountActivity" />
 
     </PreferenceCategory>
 

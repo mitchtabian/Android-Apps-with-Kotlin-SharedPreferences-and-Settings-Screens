@@ -23,14 +23,14 @@
         <activity
             android:name=".SettingsActivity1"
             android:label="@string/title_activity_settings1"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".SettingsActivity2"
-            android:label="@string/title_activity_settings2">
-
-        </activity>
+            android:label="@string/title_activity_settings2"></activity>
+        <activity
+            android:name=".AccountActivity"
+            android:label="@string/title_activity_account"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
