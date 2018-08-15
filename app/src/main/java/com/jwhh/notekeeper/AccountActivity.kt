@@ -1,5 +1,6 @@
 package com.jwhh.notekeeper
 
+import android.content.Context
 import android.content.SharedPreferences
 import android.os.*
 import android.preference.PreferenceManager
@@ -7,6 +8,7 @@ import android.support.v7.app.AppCompatActivity
 import android.telephony.PhoneNumberFormattingTextWatcher
 import android.util.Log
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import kotlinx.android.synthetic.main.activity_account.*
 import kotlinx.android.synthetic.main.layout_account_toolbar.*
 import java.util.*
@@ -15,6 +17,8 @@ import java.util.*
 class AccountActivity : AppCompatActivity(),
         View.OnClickListener
 {
+
+    val TAG = "AccountActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,13 +54,67 @@ class AccountActivity : AppCompatActivity(),
         }
     }
 
+    fun savePreferences(){
+        hideKeyboard()
+
+        val prefs: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+        val editor: SharedPreferences.Editor = prefs.edit()
+
+        // Name
+        if(!input_name.text.toString().equals("")){
+            val name: String? = input_name.text.toString()
+            printToLog("saving name: ${name}")
+            editor.putString(PREFERENCES_NAME, name)
+        }
+
+        // Username
+        if(!input_username.text.toString().equals("")){
+            val username: String? = input_username.text.toString()
+            printToLog("saving username: ${username}")
+            editor.putString(PREFERENCES_USERNAME, username)
+        }
+
+        // Email
+        if(!input_email_address.text.toString().equals("")){
+            val email: String? = input_email_address.text.toString()
+            printToLog("saving username: ${email}")
+            editor.putString(PREFERENCES_EMAIL, email)
+        }
+
+        // Phone
+        if(!input_phone_number.text.toString().equals("")){
+            val phoneNumber: String? = input_phone_number.text.toString()
+            printToLog("saving phone number: ${phoneNumber}")
+            editor.putString(PREFERENCES_PHONE_NUMBER, phoneNumber)
+        }
+
+        // Gender
+        printToLog("saving gender: " + gender_spinner.selectedItem.toString())
+        editor.putString(PREFERENCES_GENDER, gender_spinner.selectedItem.toString())
+
+        // Apply the changes
+        editor.apply()
+    }
+
+
     override fun onClick(widget: View?) {
         when(widget?.id){
 
             R.id.close -> finish()
 
+            R.id.save -> savePreferences()
         }
 
+    }
+
+    fun hideKeyboard() {
+        printToLog("closing keyboard")
+        val imm = this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(currentFocus.rootView.windowToken, 0)
+    }
+
+    private fun printToLog(message: String?){
+        Log.d(TAG, message)
     }
 
     private fun initToolbar() {
