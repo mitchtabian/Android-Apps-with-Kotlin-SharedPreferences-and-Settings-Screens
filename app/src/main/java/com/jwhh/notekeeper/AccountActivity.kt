@@ -15,7 +15,8 @@ import java.util.*
 
 
 class AccountActivity : AppCompatActivity(),
-        View.OnClickListener
+        View.OnClickListener,
+        SharedPreferences.OnSharedPreferenceChangeListener
 {
 
     val TAG = "AccountActivity"
@@ -107,6 +108,17 @@ class AccountActivity : AppCompatActivity(),
 
     }
 
+
+    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
+        when(key){
+            PREFERENCES_NAME -> printToLog("Change detected to Shared Preferences!")
+            PREFERENCES_USERNAME -> printToLog("Change detected to Shared Preferences!")
+            PREFERENCES_PHONE_NUMBER -> printToLog("Change detected to Shared Preferences!")
+            PREFERENCES_EMAIL -> printToLog("Change detected to Shared Preferences!")
+            PREFERENCES_GENDER -> printToLog("Change detected to Shared Preferences!")
+        }
+    }
+
     fun hideKeyboard() {
         printToLog("closing keyboard")
         val imm = this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -121,5 +133,17 @@ class AccountActivity : AppCompatActivity(),
         close.setOnClickListener(this)
         save.setOnClickListener(this)
     }
+
+
+    override fun onResume() {
+        super.onResume()
+        PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        PreferenceManager.getDefaultSharedPreferences(this).unregisterOnSharedPreferenceChangeListener(this)
+    }
+
 
 }
