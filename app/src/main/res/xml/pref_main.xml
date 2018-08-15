@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="General">
+
+        <Preference
+            android:selectable="true"
+            android:summary="@string/summary_account_settings"
+            android:title="@string/title_account_settings"
+            android:key="@string/key_account_settings">
+
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:targetPackage="com.jwhh.notekeeper"
+                android:targetClass="com.jwhh.notekeeper.AccountActivity" />
+
+        </Preference>
+
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_title_data">
+
+        <EditTextPreference
+            android:defaultValue="@string/default_storage"
+            android:key="@string/key_gallery_name"
+            android:summary="@string/default_storage"
+            android:title="@string/title_gallery_storage"/>
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/key_upload_over_wifi"
+            android:summary="@string/summary_upload_over_wifi"
+            android:title="@string/title_auto_upload"/>
+
+        <ListPreference
+            android:defaultValue="1"
+            android:dialogTitle="@string/title_backup_frequency"
+            android:entries="@array/pref_backup_frequency_entries"
+            android:entryValues="@array/pref_backup_frequency_values"
+            android:key="@string/key_backup_frequency"
+            android:summary="@string/summary_backup_frequency"
+            android:title="@string/title_backup_frequency" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_title_notifications">
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="@string/key_notifications_new_message"
+            android:title="@string/title_new_notification_sound" />
+
+        <RingtonePreference
+            android:defaultValue="content://settings/system/notification_sound"
+            android:dependency="notifications_new_message"
+            android:key="@string/key_notifications_new_message_ringtone"
+            android:ringtoneType="notification"
+            android:summary="@string/summary_choose_ringtone"
+            android:title="@string/pref_title_ringtone"/>
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="@string/key_vibrate"
+            android:summary="@string/summary_vibrate"
+            android:title="@string/title_vibrate" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_header_about">
+
+        <Preference
+            android:selectable="false"
+            android:summary="@string/summary_about" />
+
+        <Preference
+            android:summary="@string/app_version"
+            android:title="@string/title_version" />
+
+        <Preference
+            android:key="@string/key_send_feedback"
+            android:summary="@string/summary_support"
+            android:title="@string/title_send_feedback">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/url_support" />
+        </Preference>
+
+        <!-- preference opens url in browser -->
+        <Preference
+            android:summary="@string/summary_faq"
+            android:title="@string/title_faq">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/url_faq" />
+        </Preference>
+
+        <Preference android:title="@string/privacy_policy">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/url_privacy" />
+        </Preference>
+
+        <Preference android:title="@string/title_terms">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/url_terms" />
+        </Preference>
+    </PreferenceCategory>
+</PreferenceScreen>

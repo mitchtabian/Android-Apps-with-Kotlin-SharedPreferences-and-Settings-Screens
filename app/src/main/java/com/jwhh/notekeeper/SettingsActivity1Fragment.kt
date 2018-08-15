@@ -11,7 +11,6 @@ class SettingsActivity1Fragment : PreferenceFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        Log.d("test", "FRAGMENT IS IN VIEW")
+        addPreferencesFromResource(R.xml.pref_main)
     }
 }
