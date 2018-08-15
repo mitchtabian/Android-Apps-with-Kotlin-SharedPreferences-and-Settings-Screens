@@ -8,12 +8,7 @@ import android.media.RingtoneManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.preference.ListPreference
-import android.preference.Preference
-import android.preference.PreferenceActivity
-import android.preference.PreferenceFragment
-import android.preference.PreferenceManager
-import android.preference.RingtonePreference
+import android.preference.*
 import android.text.TextUtils
 import android.view.MenuItem
 
@@ -79,12 +74,6 @@ class SettingsActivity2 : AppCompatPreferenceActivity() {
             addPreferencesFromResource(R.xml.pref_general)
             setHasOptionsMenu(true)
 
-            // Bind the summaries of EditText/List/Dialog/Ringtone preferences
-            // to their values. When their values change, their summaries are
-            // updated to reflect the new value, per the Android Design
-            // guidelines.
-//            bindPreferenceSummaryToValue(findPreference("example_text"))
-//            bindPreferenceSummaryToValue(findPreference("example_list"))
         }
 
         override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -112,7 +101,7 @@ class SettingsActivity2 : AppCompatPreferenceActivity() {
             // to their values. When their values change, their summaries are
             // updated to reflect the new value, per the Android Design
             // guidelines.
-//            bindPreferenceSummaryToValue(findPreference("notifications_new_message_ringtone"))
+            bindPreferenceSummaryToValue(findPreference(getString(R.string.key_notifications_new_message_ringtone)))
         }
 
         override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -140,7 +129,8 @@ class SettingsActivity2 : AppCompatPreferenceActivity() {
             // to their values. When their values change, their summaries are
             // updated to reflect the new value, per the Android Design
             // guidelines.
-//            bindPreferenceSummaryToValue(findPreference("sync_frequency"))
+            bindPreferenceSummaryToValue(findPreference(getString(R.string.key_backup_frequency)))
+            bindPreferenceSummaryToValue(findPreference(getString(R.string.key_gallery_name)))
         }
 
         override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -220,7 +210,8 @@ class SettingsActivity2 : AppCompatPreferenceActivity() {
                     }
                 }
 
-            } else {
+            }
+            else if(preference is EditTextPreference){
                 // For all other preferences, set the summary to the value's
                 // simple string representation.
                 preference.summary = stringValue
