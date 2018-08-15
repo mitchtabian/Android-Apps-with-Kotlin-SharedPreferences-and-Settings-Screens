@@ -9,11 +9,6 @@
             android:title="@string/title_account_settings"
             android:key="@string/key_account_settings">
 
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:targetPackage="com.jwhh.notekeeper"
-                android:targetClass="com.jwhh.notekeeper.AccountActivity" />
-
         </Preference>
 
 
