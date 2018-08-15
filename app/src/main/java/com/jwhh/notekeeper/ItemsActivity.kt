@@ -95,13 +95,18 @@ class ItemsActivity : AppCompatActivity(),
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.action_settings -> {
-                navSettingsActivity1()
+                navSettingsActivity2()
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
     }
 
+
+    private fun navSettingsActivity2(){
+        intent = Intent(this, SettingsActivity2::class.java)
+        startActivity(intent)
+    }
 
     private fun navSettingsActivity1(){
         intent = Intent(this, SettingsActivity1::class.java)
