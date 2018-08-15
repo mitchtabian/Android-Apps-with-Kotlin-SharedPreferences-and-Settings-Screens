@@ -11,7 +11,8 @@ class SettingsActivity1Fragment : PreferenceFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        Log.d("test", "FRAGMENT IS IN VIEW")
+        
+		
+		Log.d("test", "FRAGMENT IS IN VIEW")
     }
 }
