@@ -95,7 +95,13 @@ class ItemsActivity : AppCompatActivity(),
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.action_settings -> {
-                navSettingsActivity2()
+                val tabletSize = resources.getBoolean(R.bool.isTablet)
+                printToLog("isTablet: " + tabletSize)
+                if (tabletSize) {
+                    navSettingsActivity2()
+                } else {
+                    navSettingsActivity1()
+                }
                 true
             }
             else -> super.onOptionsItemSelected(item)
