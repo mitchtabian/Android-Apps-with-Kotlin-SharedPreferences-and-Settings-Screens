@@ -9,7 +9,6 @@
             android:title="@string/title_account_settings"
             android:key="@string/key_account_settings">
 
-
         </Preference>
 
 
