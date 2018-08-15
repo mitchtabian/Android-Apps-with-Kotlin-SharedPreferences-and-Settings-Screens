@@ -31,6 +31,10 @@ class SettingsActivity1Fragment : PreferenceFragment(),
 
         return true
     }
+	
+    private fun uploadPreferencesToServer(){
+        // Code for uploading updated preferences to server
+    }
 
     private fun printToLog(message: String?){
         Log.d(TAG, message)
