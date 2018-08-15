@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.os.*
 import android.preference.PreferenceManager
+import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.telephony.PhoneNumberFormattingTextWatcher
 import android.util.Log
@@ -20,6 +21,8 @@ class AccountActivity : AppCompatActivity(),
 {
 
     val TAG = "AccountActivity"
+
+    private var isRunning: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -109,14 +112,62 @@ class AccountActivity : AppCompatActivity(),
     }
 
 
-    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
+    override fun onSharedPreferenceChanged(p0: SharedPreferences?, key: String?) {
         when(key){
-            PREFERENCES_NAME -> printToLog("Change detected to Shared Preferences!")
-            PREFERENCES_USERNAME -> printToLog("Change detected to Shared Preferences!")
-            PREFERENCES_PHONE_NUMBER -> printToLog("Change detected to Shared Preferences!")
-            PREFERENCES_EMAIL -> printToLog("Change detected to Shared Preferences!")
-            PREFERENCES_GENDER -> printToLog("Change detected to Shared Preferences!")
+            PREFERENCES_NAME -> updatePreferenceSuccess(PREFERENCES_NAME)
+            PREFERENCES_USERNAME -> updatePreferenceSuccess(PREFERENCES_USERNAME)
+            PREFERENCES_PHONE_NUMBER -> updatePreferenceSuccess(PREFERENCES_PHONE_NUMBER)
+            PREFERENCES_EMAIL -> updatePreferenceSuccess(PREFERENCES_EMAIL)
+            PREFERENCES_GENDER -> updatePreferenceSuccess(PREFERENCES_GENDER)
         }
+    }
+
+    fun updatePreferenceSuccess(key: String?){
+        showProgressBar()
+
+        // Simulate uploading the new data to server
+        if(!isRunning){
+
+            // If this was a real application we would send the updates to server here
+            simulateUploadToServer()
+
+            Snackbar.make(currentFocus.rootView, "sending updates to server", Snackbar.LENGTH_SHORT).show()
+            printToLog("successfully updated shared preferences. key: " + key)
+        }
+    }
+
+    private fun simulateUploadToServer(){
+        val handler = Handler(Looper.getMainLooper())
+        val start: Long = System.currentTimeMillis()
+        val runnable: Runnable = object: Runnable{
+            override fun run() {
+                handler.postDelayed(this, 100)
+                isRunning = true
+                val now: Long = System.currentTimeMillis()
+                val difference: Long = now - start
+                if(difference >= 1000){
+                    printToLog("update finished")
+                    updateFinished()
+                    handler.removeCallbacks(this)
+                    isRunning = false
+                }
+            }
+        }
+        this.runOnUiThread(runnable)
+    }
+
+    private fun updateFinished(){
+        hideProgressBar()
+    }
+
+    private fun showProgressBar(){
+        save.visibility = View.INVISIBLE
+        progress_bar.visibility = View.VISIBLE
+    }
+
+    private fun hideProgressBar(){
+        progress_bar.visibility = View.INVISIBLE
+        save.visibility = View.VISIBLE
     }
 
     fun hideKeyboard() {
