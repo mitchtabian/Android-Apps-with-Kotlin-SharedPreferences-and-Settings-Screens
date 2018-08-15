@@ -17,4 +17,9 @@
         android:icon="@drawable/ic_sync_black_24dp"
         android:title="@string/pref_header_data_sync" />
 
+    <header
+        android:fragment="com.jwhh.notekeeper.SettingsActivity2$AboutPreferenceFragment"
+        android:icon="@drawable/ic_live_help_black_24dp"
+        android:title="@string/pref_header_about" />
+
 </preference-headers>
