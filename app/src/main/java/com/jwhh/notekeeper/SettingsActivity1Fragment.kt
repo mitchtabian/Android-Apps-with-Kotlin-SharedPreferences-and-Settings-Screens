@@ -1,8 +1,11 @@
 package com.jwhh.notekeeper
 
 
+import android.media.RingtoneManager
+import android.net.Uri
 import android.os.Bundle
-import android.preference.PreferenceFragment
+import android.preference.*
+import android.text.TextUtils
 import android.util.Log
 
 
