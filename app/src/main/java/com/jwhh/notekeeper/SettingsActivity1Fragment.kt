@@ -36,7 +36,7 @@ class SettingsActivity1Fragment : PreferenceFragment(),
     override fun onPreferenceClick(preference: Preference?): Boolean {
         when(preference!!.key){
             getString(R.string.key_upload_over_wifi) -> {
-                printToLog("Change detected to preference. key: " + getString(R.string.key_upload_over_wifi))
+                printToLog("Click detected to preference. key: " + getString(R.string.key_upload_over_wifi))
             }
         }
 
