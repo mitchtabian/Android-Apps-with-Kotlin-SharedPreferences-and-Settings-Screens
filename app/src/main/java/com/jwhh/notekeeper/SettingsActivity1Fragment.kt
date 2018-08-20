@@ -26,25 +26,17 @@ class SettingsActivity1Fragment : PreferenceFragment(),
         uploadWifiPreference.onPreferenceClickListener = this
 
         // set Preference Change Listeners
-        val galleryNamePreference: Preference = preferenceManager.findPreference(getString(R.string.key_gallery_name))
-        galleryNamePreference.onPreferenceChangeListener = this
-
-        uploadWifiPreference.onPreferenceChangeListener = this
-
         val notificationsNewMessagePreference: Preference = preferenceManager.findPreference(getString(R.string.key_notifications_new_message))
         notificationsNewMessagePreference.onPreferenceChangeListener = this
-
-        val notificationsRingtonePreference: Preference = preferenceManager.findPreference(getString(R.string.key_notifications_new_message_ringtone))
-        notificationsRingtonePreference.onPreferenceChangeListener = this
-
-
+        
         val vibratePreference: Preference = preferenceManager.findPreference(getString(R.string.key_vibrate))
         vibratePreference.onPreferenceChangeListener = this
 
-        val backupFrequencyPreference: Preference = preferenceManager.findPreference(getString(R.string.key_backup_frequency))
         backupFrequencyPreference.onPreferenceChangeListener = this
-
-
+        galleryNamePreference.onPreferenceChangeListener = this
+        uploadWifiPreference.onPreferenceChangeListener = this
+        notificationsRingtonePreference.onPreferenceChangeListener = this
+        
         // set the summaries to show the most recent information
         updateSummary(galleryNamePreference, null)
         updateSummary(notificationsRingtonePreference, null)
