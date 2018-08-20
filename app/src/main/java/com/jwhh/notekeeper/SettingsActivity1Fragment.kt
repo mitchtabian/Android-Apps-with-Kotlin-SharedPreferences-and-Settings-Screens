@@ -77,7 +77,7 @@ class SettingsActivity1Fragment : PreferenceFragment() {
         else if(preference is EditTextPreference){
             // For all other preferences, set the summary to the value's
             // simple string representation.
-            preference.summary = stringValue
+            preference.setSummary(stringValue)
         }
     }
 }
