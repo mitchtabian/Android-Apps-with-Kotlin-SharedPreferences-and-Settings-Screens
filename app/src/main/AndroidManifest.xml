@@ -29,7 +29,7 @@
             android:label="@string/title_activity_settings2"></activity>
         <activity
             android:name=".AccountActivity"
-            android:label="@string/title_activity_account"
+            android:label="@string/title_account_settings"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
