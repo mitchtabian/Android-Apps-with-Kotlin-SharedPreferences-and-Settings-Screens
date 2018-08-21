@@ -15,7 +15,8 @@ import java.util.*
 class AccountActivity : AppCompatActivity(),
         View.OnClickListener
 {
-
+    val TAG = "AccountActivity"
+	
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_account)
