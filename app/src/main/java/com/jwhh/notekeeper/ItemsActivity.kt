@@ -110,12 +110,12 @@ class ItemsActivity : AppCompatActivity(),
 
 
     private fun navSettingsActivity2(){
-        intent = Intent(this, SettingsActivity2::class.java)
+        val intent = Intent(this, SettingsActivity2::class.java)
         startActivity(intent)
     }
 
     private fun navSettingsActivity1(){
-        intent = Intent(this, SettingsActivity1::class.java)
+        val intent = Intent(this, SettingsActivity1::class.java)
         startActivity(intent)
     }
 
