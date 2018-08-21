@@ -59,6 +59,16 @@ class AccountActivity : AppCompatActivity(),
 
     }
 
+	fun hideKeyboard() {
+        printToLog("closing keyboard")
+        val imm = this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(currentFocus.rootView.windowToken, 0)
+    }
+
+    private fun printToLog(message: String?){
+        Log.d(TAG, message)
+    }
+	
     private fun initToolbar() {
         close.setOnClickListener(this)
         save.setOnClickListener(this)
